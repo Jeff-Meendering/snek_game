@@ -26,22 +26,25 @@ let snake = [
     {x:0, y:0}
 ];
 
-
 // Event listeners
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
+document.getElementById("up").addEventListener("click", () => changeDirection({ keyCode: 38 }));
+document.getElementById("left").addEventListener("click", () => changeDirection({ keyCode: 37 }));
+document.getElementById("right").addEventListener("click", () => changeDirection({ keyCode: 39 }));
+document.getElementById("down").addEventListener("click", () => changeDirection({ keyCode: 40 }));
 
 // Game start
 gameStart();
 
 // Game functions
 function gameStart(){
+    adjustCanvasSize();
     running= true;
     scoreText.textContent = score;
     createFood();
     drawFood();
     nextTick();
-
 };
 
 function nextTick(){
@@ -185,3 +188,14 @@ function resetGame(){
     ];
     gameStart();
 };
+
+function adjustCanvasSize() {
+    if (window.innerWidth < 768) {
+        const maxWidth = window.innerWidth - 20;
+        const maxHeight = window.innerHeight - 100;
+        const size = Math.min(maxWidth, maxHeight);
+
+        gameBoard.width = size;
+        gameBoard.height = size;
+    }
+}
