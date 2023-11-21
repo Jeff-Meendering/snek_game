@@ -1,7 +1,5 @@
 html, body {
     height: 100%;
-    overflow: hidden;
-    max-height: 100%;
     margin: 0;
     padding: 0;
     background-color: black;
@@ -9,7 +7,7 @@ html, body {
 
 h1 {
     font-family: 'Press Start 2P', cursive;
-    font-size: 40px;
+    font-size: 60px;
     color: white;
     text-align: center;
 }
@@ -23,7 +21,7 @@ h1 {
 }
 
 #score {
-    font-size: 60px;
+    font-size: 80px;
     font-weight: bold;
     font-family: 'Roboto', sans-serif;
     color: white;
@@ -31,11 +29,11 @@ h1 {
 
 #reset {
     font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 28px;
     border: none;
     color: white;
-    width: 80px;
-    height: 40px;
+    width: 90px;
+    height: 50px;
     border-radius: 10px;
     cursor: pointer;
     background-color: #61afef;
