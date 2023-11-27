@@ -38,9 +38,15 @@ document.getElementById("down").addEventListener("click", () => changeDirection(
 gameStart();
 
 // Game functions
-function gameStart(){
+function gameStart() {
+    if (isMobileDevice()) {
+        document.getElementById('mobileMessage').style.display = 'block';
+        document.getElementById('container').style.display = 'none';
+        return;
+    }
+    
     adjustCanvasSize();
-    running= true;
+    running = true;
     scoreText.textContent = score;
     createFood();
     drawFood();
@@ -198,4 +204,8 @@ function adjustCanvasSize() {
         gameBoard.width = size;
         gameBoard.height = size;
     }
+}
+
+function isMobileDevice() {
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 }
