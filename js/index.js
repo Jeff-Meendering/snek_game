@@ -29,10 +29,6 @@ let snake = [
 // Event listeners
 window.addEventListener("keydown", changeDirection);
 resetBtn.addEventListener("click", resetGame);
-document.getElementById("up").addEventListener("click", () => changeDirection({ keyCode: 38 }));
-document.getElementById("left").addEventListener("click", () => changeDirection({ keyCode: 37 }));
-document.getElementById("right").addEventListener("click", () => changeDirection({ keyCode: 39 }));
-document.getElementById("down").addEventListener("click", () => changeDirection({ keyCode: 40 }));
 
 // Game start
 gameStart();
@@ -40,6 +36,7 @@ gameStart();
 // Game functions
 function gameStart() {
     if (isMobileDevice()) {
+        alert("Sorry, this game is only playable on a PC.");
         document.getElementById('mobileMessage').style.display = 'block';
         document.getElementById('container').style.display = 'none';
         return;
@@ -207,5 +204,7 @@ function adjustCanvasSize() {
 }
 
 function isMobileDevice() {
-    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) ||
+           ('ontouchstart' in window || navigator.maxTouchPoints > 0) ||
+           window.innerWidth < 768;
 }
